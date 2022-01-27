@@ -1,26 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import * as React from 'react'
+
+// 1. import `ChakraProvider` component
+import { ChakraProvider, Heading, Center, Input, Box, Button, Text } from '@chakra-ui/react'
+import Message from "./Message"
+
 
 function App() {
+  // 2. Use at the root of your app
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <ChakraProvider>
+      <Center>
+        <Box>
+          <Heading>ChakraUI Heading</Heading>
+          <Message/>
+          <Message/>
+          <Input onChange={(e) => console.log(e.target.value)}/>
+          <Button onClick={() => console.log("Button clicked")}>Send Message</Button> 
+        </Box>
+      </Center>
+    </ChakraProvider>
+  )
 }
-
 export default App;
